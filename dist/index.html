@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#060b17">
+  <meta name="description" content="原创单人 Canvas 游戏：像素装甲守卫">
+  <title>像素装甲守卫</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="像素装甲守卫游戏区域"></canvas>
+
+    <section id="hud" aria-live="polite">
+      <div class="hud-brand"><span class="brand-mark"></span><b>像素装甲守卫</b><small>PIXEL ARMOR GUARD</small></div>
+      <div class="hud-stat"><span>装甲</span><strong id="health">100</strong></div>
+      <div class="hud-stat"><span>核心</span><strong id="core-health">100</strong></div>
+      <div class="hud-stat"><span>敌军</span><strong id="enemies">12</strong></div>
+      <div class="hud-stat timer"><span>时间</span><strong id="timer">03:00</strong></div>
+    </section>
+
+    <section id="start-screen" class="overlay visible">
+      <div class="panel">
+        <p class="eyebrow">ORIGINAL CANVAS GAME</p>
+        <h1>像素装甲<br><em>守卫</em></h1>
+        <p class="lead">驾驶先锋装甲车，守住能源核心。<br>击退全部无人战车，完成防线任务。</p>
+        <div class="controls-help">
+          <span><kbd>WASD</kbd><i>或方向键移动</i></span>
+          <span><kbd>空格</kbd><i>发射能量弹</i></span>
+          <span><kbd>P</kbd><i>暂停任务</i></span>
+        </div>
+        <button id="start-btn" class="primary">开始任务</button>
+        <p class="mobile-hint">手机端可使用屏幕控制器</p>
+      </div>
+    </section>
+
+    <section id="end-screen" class="overlay">
+      <div class="panel compact">
+        <p id="end-kicker" class="eyebrow">MISSION COMPLETE</p>
+        <h2 id="end-title">防线稳固</h2>
+        <p id="end-message" class="lead"></p>
+        <div class="result-row">
+          <span>得分<strong id="final-score">0</strong></span>
+          <span>用时<strong id="final-time">00:00</strong></span>
+        </div>
+        <button id="restart-btn" class="primary">再次出击</button>
+      </div>
+    </section>
+
+    <div id="pause-label">任务暂停</div>
+
+    <section id="touch-controls" aria-label="触屏游戏控制">
+      <div class="dpad">
+        <button data-key="ArrowUp" class="up" aria-label="向上">▲</button>
+        <button data-key="ArrowLeft" class="left" aria-label="向左">◀</button>
+        <button data-key="ArrowDown" class="down" aria-label="向下">▼</button>
+        <button data-key="ArrowRight" class="right" aria-label="向右">▶</button>
+      </div>
+      <button id="fire-btn" aria-label="发射能量弹"><span>FIRE</span><b>发射</b></button>
+    </section>
+  </main>
+  <script src="./game.js"></script>
+</body>
+</html>
